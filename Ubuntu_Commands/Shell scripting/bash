@@ -1,0 +1,126 @@
+#!/bin/bash
+# ===============================
+# COMPLETE SHELL SCRIPT EXAMPLE
+# ===============================
+
+# -------- Variables --------
+NAME="Mubin"
+AGE=22
+DATE=$(date)
+
+echo "Hello, $NAME"
+echo "Age: $AGE"
+echo "Today is: $DATE"
+echo "--------------------------"
+
+# -------- User Input --------
+echo "Enter your university name:"
+read UNIVERSITY
+echo "You study at $UNIVERSITY"
+echo "--------------------------"
+
+# -------- If-Else --------
+echo "Enter a number:"
+read NUM
+
+if [ $NUM -gt 0 ]; then
+    echo "Positive number"
+elif [ $NUM -lt 0 ]; then
+    echo "Negative number"
+else
+    echo "Zero"
+fi
+echo "--------------------------"
+
+# -------- Case Statement --------
+echo "Enter a grade (A/B/C/D/F):"
+read GRADE
+
+case $GRADE in
+    A) echo "Excellent" ;;
+    B) echo "Good" ;;
+    C) echo "Average" ;;
+    D) echo "Pass" ;;
+    F) echo "Fail" ;;
+    *) echo "Invalid grade" ;;
+esac
+echo "--------------------------"
+
+# -------- Loop (for) --------
+echo "For loop example:"
+for i in 1 2 3 4 5
+do
+    echo "Number: $i"
+done
+echo "--------------------------"
+
+# -------- Loop (while) --------
+count=1
+while [ $count -le 3 ]
+do
+    echo "Count: $count"
+    ((count++))
+done
+echo "--------------------------"
+
+# -------- Array --------
+FRUITS=("Apple" "Banana" "Mango")
+
+echo "Array elements:"
+for fruit in "${FRUITS[@]}"
+do
+    echo "$fruit"
+done
+echo "--------------------------"
+
+# -------- Function --------
+greet() {
+    echo "Welcome to Shell Scripting, $1"
+}
+
+greet "$NAME"
+echo "--------------------------"
+
+# -------- File Check --------
+FILE="test.txt"
+
+if [ -f "$FILE" ]; then
+    echo "$FILE exists"
+else
+    echo "$FILE does not exist, creating it"
+    touch $FILE
+fi
+echo "--------------------------"
+
+# -------- Command Line Arguments --------
+echo "Script Name: $0"
+echo "First Argument: $1"
+echo "Second Argument: $2"
+echo "Total Arguments: $#"
+echo "--------------------------"
+
+# -------- Arithmetic --------
+a=10
+b=5
+sum=$((a + b))
+echo "Sum of $a and $b is $sum"
+echo "--------------------------"
+
+# -------- Exit Status --------
+ls /tmp > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo "Command executed successfully"
+else
+    echo "Command failed"
+fi
+echo "--------------------------"
+
+echo "Shell Script Finished Successfully ✅"
+
+
+# -------- How to Run This Script --------
+chmod +x script.sh
+./script.sh
+
+
+# End of Script
